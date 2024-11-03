@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@angular/cli": "^18.2.11",
+    "angularx-qrcode": "^18.0.2",
+    "ngx-qrcode2": "^9.0.0"
+  }
+}

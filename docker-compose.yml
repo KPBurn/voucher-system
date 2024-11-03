@@ -1,0 +1,34 @@
+services:
+  frontend:
+    build:
+      context: ./voucher-frontend
+    ports:
+      - "4200:80"
+    networks:
+      - voucher-network
+
+  backend:
+    build:
+      context: ./voucher-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/voucher-system
+    depends_on:
+      - mongo
+    networks:
+      - voucher-network
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=ice
+      - MONGO_INITDB_ROOT_PASSWORD=iceoriginal
+    networks:
+      - voucher-network
+
+networks:
+  voucher-network:
+    driver: bridge

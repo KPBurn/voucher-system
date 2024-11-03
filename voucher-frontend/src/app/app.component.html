@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <!-- Input for Facebook Page ID -->
+  <input
+    [(ngModel)]="facebookPageId"
+    type="text"
+    placeholder="Enter Facebook Page ID"
+    class="form-control"
+  />
+
+  <!-- Button to generate the QR code -->
+  <button (click)="generateMessengerLink()" class="btn btn-primary mt-3">
+    Generate QR Code
+  </button>
+
+  <!-- Display the QR code if the link is generated -->
+  <div *ngIf="messengerLink" class="mt-4">
+    <qrcode [qrdata]="messengerLink"></qrcode>
+    <p>{{ messengerLink }}</p>
+  </div>
+</div>
