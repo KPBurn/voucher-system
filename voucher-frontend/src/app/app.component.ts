@@ -10,8 +10,11 @@ export class AppComponent {
   facebookPageId: string = '';          // Variable to store user input
   messengerLink: string | null = null;  // Variable to store the generated link
 
-  generateMessengerLink() {
-    const payload = 'VOUCHER_CONDITION'; // Payload to trigger bot condition
-    this.messengerLink = `https://m.me/${this.facebookPageId}?ref=${payload}`;
+  generateMessengerLink(): void {
+    const facebookPageId = this.facebookPageId;
+    const refParameter = 'qr_entry';  // You can use any identifier here
+    this.messengerLink = `https://m.me/${facebookPageId}?ref=${refParameter}`;
+  
+  
   }
 }
